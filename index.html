@@ -24,26 +24,28 @@
             padding: 20px;
             border-radius: 20px;
             text-align: center;
-            width: 90%;
-            max-width: 380px; /* Slightly wider to accommodate the big logo */
+            width: 85%;
+            max-width: 340px;
+            /* Height is now automatic based on content */
+            height: auto; 
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* The Logo - Massive but properly contained */
+        /* Scaled down slightly to 250px so it doesn't float away */
         .app-logo {
-            width: 100%; /* Spans the full width of the container */
-            max-width: 350px; /* 400% scale from the original 80-90px */
+            width: 250px; 
             height: auto;
-            margin-bottom: 10px;
+            margin-top: -10px; /* Pulls it slightly higher in the box */
+            margin-bottom: 5px;
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.4));
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             margin: 0;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -53,15 +55,15 @@
             color: #0096ff;
             font-weight: bold;
             text-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
-            margin-bottom: 20px;
-            font-size: 13px;
+            margin-bottom: 15px;
+            font-size: 12px;
         }
 
         .unc-box {
             background: rgba(0, 10, 30, 0.5);
             border-radius: 12px;
             padding: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid rgba(0, 150, 255, 0.1);
             width: 100%;
             box-sizing: border-box;
@@ -98,15 +100,14 @@
         .btn {
             display: block;
             width: 100%;
-            padding: 14px;
-            margin-top: 10px;
+            padding: 12px;
+            margin-top: 8px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 14px;
             box-sizing: border-box;
             border: none;
-            transition: 0.2s;
         }
 
         .btn-launch {
@@ -114,15 +115,11 @@
             color: #fff;
         }
 
-        .btn-launch:active {
-            transform: scale(0.98);
-        }
-
         .btn-site {
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 13px;
+            font-size: 12px;
         }
     </style>
 </head>
