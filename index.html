@@ -21,27 +21,25 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 150, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
+            padding: 15px 25px 25px 25px; /* Less top padding */
+            border-radius: 24px;
             text-align: center;
-            width: 85%;
-            max-width: 340px;
-            /* Height is now automatic based on content */
-            height: auto; 
+            width: 320px; /* Locked width */
+            height: auto; /* Snaps to content */
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Scaled down slightly to 250px so it doesn't float away */
+        /* Fixed the floating: No more excess space */
         .app-logo {
-            width: 250px; 
+            width: 260px; 
             height: auto;
-            margin-top: -10px; /* Pulls it slightly higher in the box */
-            margin-bottom: 5px;
+            margin-top: -15px; /* Pulls it up so it's not floating */
+            margin-bottom: 0px;
             object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.4));
+            filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.3));
         }
 
         h1 {
@@ -49,6 +47,7 @@
             margin: 0;
             letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 800;
         }
 
         .status-badge {
@@ -56,7 +55,8 @@
             font-weight: bold;
             text-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
             margin-bottom: 15px;
-            font-size: 12px;
+            font-size: 11px;
+            letter-spacing: 1px;
         }
 
         .unc-box {
@@ -97,17 +97,19 @@
             box-shadow: 0 0 8px #0096ff;
         }
 
+        /* Compact Buttons */
         .btn {
             display: block;
             width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border-radius: 10px;
+            padding: 14px;
+            margin-top: 10px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
             box-sizing: border-box;
             border: none;
+            text-transform: uppercase;
         }
 
         .btn-launch {
