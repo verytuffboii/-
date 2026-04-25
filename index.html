@@ -5,137 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta Status</title>
     <style>
-        :root {
-            --primary-glow: #00ff88;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
+        /* Dark Theme & Glassmorphism */
         body {
-            margin: 0;
             background-color: #050505;
             color: white;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            margin: 0;
             overflow: hidden;
         }
 
-        /* Animated Background Orbs */
-        .orb {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.12;
-        }
-        .orb-1 { background: var(--primary-glow); top: -10%; left: -10%; animation: float 10s infinite alternate; }
-        .orb-2 { background: #0066ff; bottom: -10%; right: -10%; animation: float 12s infinite alternate-reverse; }
-
-        @keyframes float {
-            from { transform: translate(0, 0); }
-            to { transform: translate(30px, 50px); }
-        }
-
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--border);
-            border-radius: 40px;
-            padding: 45px 25px;
-            width: 88%;
-            max-width: 350px;
+        .container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            width: 85%;
+            max-width: 350px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .status-badge {
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--primary-glow);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 900;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            letter-spacing: 2px;
+            color: #00ff7f;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
             margin-bottom: 25px;
         }
 
-        .dot {
-            width: 8px;
+        /* UNC SECTION */
+        .unc-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 255, 127, 0.1);
+        }
+
+        .unc-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        .unc-value {
+            color: #00ff7f;
+            text-shadow: 0 0 8px #00ff7f;
+            font-weight: bold;
+        }
+
+        .progress-bg {
+            width: 100%;
             height: 8px;
-            background: var(--primary-glow);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--primary-glow);
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        .logo-container {
-            width: 190px;
-            height: 190px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .logo {
-            width: 100%;
+        .progress-fill {
+            width: 99%;
             height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.15));
+            background: linear-gradient(90deg, #00ff7f, #008040);
+            box-shadow: 0 0 10px #00ff7f;
+            border-radius: 10px;
         }
 
-        h1 { font-size: 38px; margin: 0; font-weight: 800; letter-spacing: -2px; }
-        .subtitle { color: #666; font-size: 15px; margin-top: 5px; margin-bottom: 35px; }
-
+        /* BUTTONS */
         .btn {
+            display: block;
             width: 100%;
-            padding: 18px;
-            border-radius: 18px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-weight: bold;
             transition: 0.3s;
-            box-sizing: border-box;
-            margin-bottom: 12px;
-        }
-
-        .btn-site { background: #fff; color: #000; }
-        .btn-launch { 
-            background: linear-gradient(45deg, #00ff88, #0066ff); 
-            color: #fff; 
             border: none;
+            cursor: pointer;
         }
 
-        .btn:active { transform: scale(0.94); }
+        .btn-launch {
+            background: #00ff7f;
+            color: #000;
+        }
+
+        .btn-launch:active {
+            transform: scale(0.95);
+            background: #00cc66;
+        }
+
+        .btn-site {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 10px;
+            color: #555;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
 
-    <div class="card">
-        <div class="status-badge"><div class="dot"></div> UP</div>
-        <div class="logo-container"><img src="logo.png" class="logo"></div>
-        <h1>Delta</h1>
-        <div class="subtitle">Android • aexecutor</div>
+    <div class="container">
+        <h1>DELTA</h1>
+        <div class="status-badge">● OPERATIONAL</div>
 
-        <a href="https://deltaexploits.gg" class="btn btn-site">Go to Site →</a>
-        <a href="roblox://navigation/home" class="btn btn-launch">Launch Delta 🚀</a>
+        <div class="unc-box">
+            <div class="unc-label">
+                <span>Compatibility</span>
+                <span class="unc-value">99% UNC</span>
+            </div>
+            <div class="progress-bg">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <a href="roblox://navigation/home" class="btn btn-launch">LAUNCH DELTA</a>
+        <a href="https://your-website-link.com" class="btn btn-site">OFFICIAL SITE</a>
+
+        <div class="footer">STABLE VERSION 2.0</div>
     </div>
+
 </body>
 </html>
