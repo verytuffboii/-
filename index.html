@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta Status</title>
     <style>
-        /* Dark Theme & Glassmorphism */
         body {
             background-color: #050505;
             color: white;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,127 +19,125 @@
 
         .container {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 40px 20px;
+            border-radius: 24px;
             text-align: center;
-            width: 85%;
-            max-width: 350px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-width: 320px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+        }
+
+        /* The Logo Icon */
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 255, 127, 0.1);
+            border: 2px solid #00ff7f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
+        }
+
+        .logo-circle span {
+            font-size: 40px;
+            font-weight: bold;
+            color: #00ff7f;
+            text-shadow: 0 0 10px #00ff7f;
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            letter-spacing: 4px;
+            color: #ffffff;
         }
 
-        .status-badge {
+        .status {
             color: #00ff7f;
+            font-size: 12px;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
-            margin-bottom: 25px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            opacity: 0.8;
         }
 
         /* UNC SECTION */
-        .unc-box {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(0, 255, 127, 0.1);
+        .unc-container {
+            margin-bottom: 35px;
         }
 
         .unc-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #ccc;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+            display: block;
         }
 
         .unc-value {
             color: #00ff7f;
-            text-shadow: 0 0 8px #00ff7f;
             font-weight: bold;
+            text-shadow: 0 0 5px #00ff7f;
         }
 
-        .progress-bg {
+        .bar-bg {
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: #111;
             border-radius: 10px;
-            overflow: hidden;
+            margin-top: 8px;
         }
 
-        .progress-fill {
+        .bar-fill {
             width: 99%;
             height: 100%;
-            background: linear-gradient(90deg, #00ff7f, #008040);
-            box-shadow: 0 0 10px #00ff7f;
+            background: #00ff7f;
+            box-shadow: 0 0 12px #00ff7f;
             border-radius: 10px;
         }
 
-        /* BUTTONS */
-        .btn {
+        /* LAUNCH BUTTON */
+        .launch-btn {
             display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-launch {
             background: #00ff7f;
             color: #000;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 16px;
+            transition: 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 255, 127, 0.4);
         }
 
-        .btn-launch:active {
-            transform: scale(0.95);
+        .launch-btn:active {
+            transform: scale(0.96);
             background: #00cc66;
-        }
-
-        .btn-site {
-            background: transparent;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .footer {
-            margin-top: 20px;
-            font-size: 10px;
-            color: #555;
-            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <div class="logo-circle">
+            <span>Δ</span>
+        </div>
+        
         <h1>DELTA</h1>
-        <div class="status-badge">● OPERATIONAL</div>
+        <div class="status">OPERATIONAL</div>
 
-        <div class="unc-box">
-            <div class="unc-label">
-                <span>Compatibility</span>
-                <span class="unc-value">99% UNC</span>
-            </div>
-            <div class="progress-bg">
-                <div class="progress-fill"></div>
+        <div class="unc-container">
+            <span class="unc-label">SYSTEM COMPATIBILITY: <span class="unc-value">99%</span></span>
+            <div class="bar-bg">
+                <div class="bar-fill"></div>
             </div>
         </div>
 
-        <a href="roblox://navigation/home" class="btn btn-launch">LAUNCH DELTA</a>
-        <a href="https://your-website-link.com" class="btn btn-site">OFFICIAL SITE</a>
-
-        <div class="footer">STABLE VERSION 2.0</div>
+        <a href="roblox://navigation/home" class="launch-btn">LAUNCH EXECUTOR</a>
     </div>
 
 </body>
