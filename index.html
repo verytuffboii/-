@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta Executor Status</title>
     <style>
-        /* Base Styling & Perfect Centering */
         :root {
             --primary-glow: #00ff88;
             --glass-bg: rgba(20, 20, 20, 0.7);
@@ -18,8 +17,6 @@
             background-color: #050505;
             color: white;
             font-family: 'Inter', sans-serif;
-            
-            /* Centering Logic */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,7 +24,6 @@
             overflow: hidden;
         }
 
-        /* High-Tech Background Glows */
         .bg-glow {
             position: absolute;
             width: 400px;
@@ -44,7 +40,6 @@
             to { transform: translate(30%, 30%); }
         }
 
-        /* The Main Glass Card */
         .card {
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
@@ -56,15 +51,11 @@
             max-width: 340px;
             text-align: center;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Ensures everything inside is centered */
         }
 
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(20px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        /* Status Badge */
         .status-badge {
             background: rgba(0, 255, 136, 0.05);
             color: var(--primary-glow);
@@ -87,22 +78,25 @@
             background: var(--primary-glow);
             border-radius: 50%;
             box-shadow: 0 0 12px var(--primary-glow);
-            animation: blink 2.5s infinite;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--primary-glow); }
-            50% { opacity: 0.3; box-shadow: 0 0 4px var(--primary-glow); }
+        /* --- LOGO FIXES --- */
+        .logo-container {
+            width: 140px;  /* Control the total area for the logo */
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
         }
 
-        /* Logo Styling */
         .logo {
-            width: 130px;
-            height: auto;
-            margin-bottom: 20px;
-            /* Using the logo you uploaded */
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05));
+            max-width: 100%; /* Keeps it inside the container */
+            max-height: 100%;
+            object-fit: contain; /* Prevents stretching */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
         }
+        /* ------------------ */
 
         h1 {
             font-size: 34px;
@@ -116,33 +110,26 @@
             font-size: 14px;
             margin-top: 6px;
             margin-bottom: 35px;
-            font-weight: 500;
         }
 
-        /* The Button */
         .btn {
             background: #ffffff;
             color: #000;
             text-decoration: none;
             padding: 18px;
+            width: 100%; /* Makes button fill card width */
+            box-sizing: border-box;
             border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: 700;
             font-size: 16px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+            transition: 0.2s;
         }
 
         .btn:active {
             transform: scale(0.95);
-            background: #e0e0e0;
-        }
-
-        .btn span {
-            margin-left: 10px;
-            font-size: 18px;
         }
     </style>
 </head>
@@ -156,10 +143,12 @@
             UP
         </div>
 
-        <img src="logo.png" alt="Delta Logo" class="logo">
+        <div class="logo-container">
+            <img src="logo.png" alt="Delta Logo" class="logo">
+        </div>
 
         <h1>Delta</h1>
-        <div class="subtitle">Android • Executor</div>
+        <div class="subtitle">Android • xecutor</div>
 
         <a href="https://deltaexploits.gg" class="btn">
             Go to Site <span>→</span>
