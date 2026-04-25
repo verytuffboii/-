@@ -19,103 +19,95 @@
 
         .container {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 20px;
-            border-radius: 24px;
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
-            width: 80%;
-            max-width: 320px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            width: 85%;
+            max-width: 350px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
         }
 
-        /* The Logo Icon */
-        .logo-circle {
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 255, 127, 0.1);
-            border: 2px solid #00ff7f;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px auto;
-            box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
-        }
-
-        .logo-circle span {
-            font-size: 40px;
-            font-weight: bold;
-            color: #00ff7f;
-            text-shadow: 0 0 10px #00ff7f;
+        /* Your Logo Image */
+        .app-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            object-fit: contain;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 24px;
             margin: 0;
-            letter-spacing: 4px;
-            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .status {
+        .status-badge {
             color: #00ff7f;
-            font-size: 12px;
             font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+            margin-bottom: 25px;
+            font-size: 14px;
         }
 
         /* UNC SECTION */
-        .unc-container {
-            margin-bottom: 35px;
+        .unc-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 255, 127, 0.1);
         }
 
         .unc-label {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 10px;
-            display: block;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #ccc;
         }
 
         .unc-value {
             color: #00ff7f;
+            text-shadow: 0 0 8px #00ff7f;
             font-weight: bold;
-            text-shadow: 0 0 5px #00ff7f;
         }
 
-        .bar-bg {
+        .progress-bg {
             width: 100%;
-            height: 6px;
+            height: 8px;
             background: #111;
             border-radius: 10px;
-            margin-top: 8px;
+            overflow: hidden;
         }
 
-        .bar-fill {
+        .progress-fill {
             width: 99%;
             height: 100%;
-            background: #00ff7f;
-            box-shadow: 0 0 12px #00ff7f;
-            border-radius: 10px;
+            background: linear-gradient(90deg, #00ff7f, #008040);
+            box-shadow: 0 0 10px #00ff7f;
         }
 
-        /* LAUNCH BUTTON */
-        .launch-btn {
+        /* BUTTON */
+        .btn-launch {
             display: block;
+            width: 100%;
+            padding: 15px;
             background: #00ff7f;
             color: #000;
+            border-radius: 10px;
             text-decoration: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: 900;
+            font-weight: bold;
             font-size: 16px;
             transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 255, 127, 0.4);
+            border: none;
+            box-sizing: border-box;
         }
 
-        .launch-btn:active {
-            transform: scale(0.96);
+        .btn-launch:active {
+            transform: scale(0.95);
             background: #00cc66;
         }
     </style>
@@ -123,21 +115,22 @@
 <body>
 
     <div class="container">
-        <div class="logo-circle">
-            <span>Δ</span>
-        </div>
+        <img src="logo.png" alt="Delta Logo" class="app-logo">
         
         <h1>DELTA</h1>
-        <div class="status">OPERATIONAL</div>
+        <div class="status-badge">● OPERATIONAL</div>
 
-        <div class="unc-container">
-            <span class="unc-label">SYSTEM COMPATIBILITY: <span class="unc-value">99%</span></span>
-            <div class="bar-bg">
-                <div class="bar-fill"></div>
+        <div class="unc-box">
+            <div class="unc-label">
+                <span>UNC</span>
+                <span class="unc-value">99%</span>
+            </div>
+            <div class="progress-bg">
+                <div class="progress-fill"></div>
             </div>
         </div>
 
-        <a href="roblox://navigation/home" class="launch-btn">LAUNCH EXECUTOR</a>
+        <a href="roblox://navigation/home" class="btn-launch">LAUNCH DELTA</a>
     </div>
 
 </body>
