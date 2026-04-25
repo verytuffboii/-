@@ -21,27 +21,29 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 150, 255, 0.2);
-            padding: 25px; /* Original tight padding */
+            padding: 20px;
             border-radius: 20px;
             text-align: center;
-            width: 85%;
-            max-width: 350px; /* Original fixed width */
+            width: 90%;
+            max-width: 380px; /* Slightly wider to accommodate the big logo */
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* ONLY the logo is bigger */
+        /* The Logo - Massive but properly contained */
         .app-logo {
-            width: 400px; 
+            width: 100%; /* Spans the full width of the container */
+            max-width: 350px; /* 400% scale from the original 80-90px */
             height: auto;
-            margin-left: -25px; /* Offsets padding to let it go "edge-to-edge" */
-            margin-right: -25px;
             margin-bottom: 10px;
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.4));
         }
 
         h1 {
-            font-size: 24px; /* Original font size */
+            font-size: 24px;
             margin: 0;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -61,6 +63,8 @@
             padding: 12px;
             margin-bottom: 20px;
             border: 1px solid rgba(0, 150, 255, 0.1);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .unc-label {
@@ -102,11 +106,16 @@
             font-size: 15px;
             box-sizing: border-box;
             border: none;
+            transition: 0.2s;
         }
 
         .btn-launch {
             background: #0096ff;
             color: #fff;
+        }
+
+        .btn-launch:active {
+            transform: scale(0.98);
         }
 
         .btn-site {
